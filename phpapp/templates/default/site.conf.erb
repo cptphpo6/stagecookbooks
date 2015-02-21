@@ -1,6 +1,6 @@
 <VirtualHost *:80>
-	DocumentRoot <%= node[:apache][:docroot] %>
-	ServerName <%= node[:apache][:devserverurl] %>
+	DocumentRoot <%= node["phpapp"]["docroot"] %>
+	ServerName <%= node["phpapp"]["devserverurl"] %>
 	SetEnv APPLICATION_ON development
 	SetEnv LOCALE ru_RU
 
@@ -12,14 +12,14 @@
         # ("Full" adds the server version; "Block" removes all outgoing Via: headers)
         # Set to one of: Off | On | Full | Block
         <Location /img/>
-            ProxyPass <%= node[:apache][:img_url] %>/
+            ProxyPass <%= node["phpapp"]["img_url"] %>/
         </Location>
         <Location /sound/>
-            ProxyPass <%= node[:apache][:sound_url] %>/
+            ProxyPass <%= node["phpapp"]["sound_url"] %>/
         </Location>
 
 	</IfModule>
-	 <Directory <%= node[:apache][:docroot] %>>
+	 <Directory <%= node["phpapp"]["docroot"] %>>
 		Require all granted
 		
 		AllowOverride None
