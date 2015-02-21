@@ -1,5 +1,5 @@
 <VirtualHost *:80>
-	DocumentRoot "/srv/www/server/current/app/www"
+	DocumentRoot "/srv/www/immweb/current/app/www"
 	ServerName dev.immaws.com
 	
 	SetEnv APPLICATION_ON development
@@ -12,6 +12,7 @@
         # Enable/disable the handling of HTTP/1.1 "Via:" headers.
         # ("Full" adds the server version; "Block" removes all outgoing Via: headers)
         # Set to one of: Off | On | Full | Block
+		
         <Location /img/>
             ProxyPass https://s3-eu-west-1.amazonaws.com/imm-stage-assets/img/
         </Location>
@@ -20,23 +21,23 @@
         </Location>
 
 	</IfModule>
-	 <Directory "/srv/www/server/current/app/www">
+	 <Directory "/srv/www/immweb/current/app/www">
 		Require all granted
 		
 		AllowOverride None
 		<IfModule mod_rewrite.c>
 			RewriteEngine On
-			RewriteRule ^js/(.*)$ /jsi18n/ru_RU/$1 [R,L]
+			RewriteRule ^js/(.*)$ /js-i18n/ru_RU/$1 [R,L]
 			
 			RewriteCond %{REQUEST_FILENAME} !d
 			RewriteCond %{REQUEST_FILENAME} !f
-			RewriteCond %{REQUEST_URI} !\.(ico|swf|jpe?g|gif|png|bmp|css|js)$
+			RewriteCond %{REQUEST_URI} !\.(ico|swf|jpeg|gif|png|bmp|css|js)$
 			RewriteRule ^/battle/(.*)$ /battle/$1 [L]
 			
 			RewriteCond %{REQUEST_FILENAME} !d
 			RewriteCond %{REQUEST_FILENAME} !f
-			RewriteCond %{REQUEST_URI} !\.(ico|swf|jpe?g|gif|png|bmp|css|js)$
-			RewriteRule ^(.*)$ /index.php?url=$1 [QSA,L
+			RewriteCond %{REQUEST_URI} !\.(ico|swf|jpeg|gif|png|bmp|css|js)$
+			RewriteRule ^(.*)$ /index.php?url=$1 [QSA,L]
 			
 		</IfModule>
 	 </Directory>
