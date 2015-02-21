@@ -31,12 +31,12 @@
 			
 			RewriteCond %{REQUEST_FILENAME} !d
 			RewriteCond %{REQUEST_FILENAME} !f
-			RewriteCond %{REQUEST_URI} !\.(ico|swf|jpeg|gif|png|bmp|css|js)$
+			RewriteCond %{REQUEST_URI} !\.(ico|swf|jpe?g|gif|png|bmp|css|js)$
 			RewriteRule ^/battle/(.*)$ /battle/$1 [L]
 			
 			RewriteCond %{REQUEST_FILENAME} !d
 			RewriteCond %{REQUEST_FILENAME} !f
-			RewriteCond %{REQUEST_URI} !\.(ico|swf|jpeg|gif|png|bmp|css|js)$
+			RewriteCond %{REQUEST_URI} !\.(ico|swf|jpe?g|gif|png|bmp|css|js)$
 			RewriteRule ^(.*)$ /index.php?url=$1 [QSA,L]
 			
 		</IfModule>
