@@ -9,4 +9,4 @@ default["phpapp"]["sound_url"] = '/var/www/sound/'
 #Document root for dev app
 default["phpapp"]["docroot"] = 'srv/www/immweb/app/www/'
 #server dns
-default["phpapp"]["stageserverurl"] = 'stage.immaws.com'
+default["phpapp"]["server_name"] = 'dev.immaws.com'
