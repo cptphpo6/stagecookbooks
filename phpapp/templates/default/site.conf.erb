@@ -15,6 +15,8 @@
 		
         <Location /img/>
             ProxyPass <%= @params[:img_url] %>
+			SetEnv force-proxy-request-1.0 1
+			SetEnv proxy-nokeepalive 1
         </Location>
         <Location /sound/>
             ProxyPass <%= @params[:sound_url] %>
